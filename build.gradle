@@ -1,0 +1,56 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.ohos.app'
+
+//For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/ide_debug_device-0000001053822404-V3#section1112183053510
+ohos {
+    signingConfigs {
+        release {
+            storeFile file('D:\\metaserver\\certificate\\myRelease.p12')
+            storePassword '00000018D42F86C6E5814CC463520A05BAE029CD8A16300EE99DB0621A80A98ED141728485C30D1D'
+            keyAlias = 'myRelease'
+            keyPassword '0000001865D4EA7C82BF7ADEC04825300B61E572D19532DA7AD9D64F896411FEBD6482FF5C2324F6'
+            signAlg = 'SHA256withECDSA'
+            profile file('D:\\metaserver\\certificate\\myReleaseRelease.p7b')
+            certpath file('D:\\metaserver\\certificate\\myRelease.cer')
+        }
+        debug {
+            storeFile file('C:\\Users\\zxnw\\.ohos\\config\\auto_debug_wisdomAi_com.huawei.wisdomai_2850086000394815368.p12')
+            storePassword '0000001ACEA4BC8B3C86ACB55362078F561F57294CB7638FB9F14B85B428D1C6D6140831F8293669E88C'
+            keyAlias = 'debugKey'
+            keyPassword '0000001A5D29F1E387DF7BC63D982CD01EC5A38275C8CA1BAA7A0999CBC446F3AF63A09B72D2186336AD'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\zxnw\\.ohos\\config\\auto_debug_wisdomAi_com.huawei.wisdomai_2850086000394815368.p7b')
+            certpath file('C:\\Users\\zxnw\\.ohos\\config\\auto_debug_wisdomAi_com.huawei.wisdomai_2850086000394815368.cer')
+        }
+    }
+    compileSdkVersion 6
+    defaultConfig {
+        compatibleSdkVersion = 6
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+    }
+    dependencies {
+        classpath 'com.huawei.ohos:hap:3.1.5.0'
+        classpath 'com.huawei.ohos:decctest:1.2.7.20'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div class="container">
+    <text class="title" onclick="test">测试</text>
+    <list class="dialog_container">
+        <list-item for="(index,item) in dialogList" class="dialog_item">
+            <text if="{{ index % 2 == 0 }}" class="dialog_item_ai_text">
+                {{ item }}
+            </text>
+            <text if="{{ index % 2 != 0 }}" class="dialog_item_user_text">
+                {{ item }}
+            </text>
+        </list-item>
+    </list>
+    <div class="operate">
+        <div class="operate_icon" onclick="clearDialogList">
+            <image class="operate_icon_clear" src="common/images/clear-img.png"></image>
+        </div>
+        <input class="operate_input" placeholder="请输入你的疑问" onchange="inputChange" value="{{ inputText }}"></input>
+        <div class="operate_icon" onclick="addDialogList">
+            <image class="operate_icon_add" src="common/images/sending-img.png"></image>
+        </div>
+    </div>
+</div>
